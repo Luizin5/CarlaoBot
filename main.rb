@@ -1,14 +1,19 @@
 require "discordrb"
+require "sqlite3"
 
 module Bot
 
+  include SQLite3
   include Discordrb
 
-  $bot = Discordrb::Commands::CommandBot.new token:ENV["TOKEN"],prefix: ">", ignore_bots: true
+  $db = SQLite3::Database.new "db/db.db"
+
+  $bot = Discordrb::Commands::CommandBot.new token:"#{ENV["TOKEN"]}",prefix: ">", ignore_bots: true
 
 
   p Dir["cmds/*.rb"].each { |m| require_relative m.gsub("\.rb","")}
   $bot.include!(Ping)
+  $bot.include!(Economia)
   puts "MODULOS CAREGADOS!"
 
 
@@ -18,4 +23,4 @@ module Bot
 
 end
 
-Bot.carregar
+

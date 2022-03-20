@@ -13,25 +13,44 @@ module Bot
       
       $db.execute("select userid from economia") do |row|
         $row = row
-
         p row
       end
 
+
       if $row.index(event.user.id)
         event.send_embed do |e|
-          e.title = "tu ja ta kk"
-        end
           
+
+          trabalhos = File.read("db/works.json")
+          trabalhos = JSON.parse(trabalhos)
+          trabalhos = trabalhos[0].to_a.sample
+
+
+          $db.execute("update economia set money = money + #{trabalhos[1]} where userid = #{event.user.id}")
+          event.send_embed do |e|
+            e.title = "#{event.user.name}##{event.user.tag}"
+            e.title = "você trabalhou de #{trabalhos[0]} e ganhou #{trabalhos[1]} dinheiros"
+            e.timestamp = Time.now
+            e.color = "#FF09A"
+          end
+        end
       else
-
         $db.execute("insert into economia values(#{rand(0..1000)},#{event.user.id},0)")
-
         event.send_embed do |e|
           e.title = "#{event.user.name}##{event.user.tag}"
           e.description = "Usuario registrado (digite >work) novamente para trabalhar."
           e.timestamp = Time.now
         end
       end
+    end
+
+
+    command :money do |event|
+      cmd = $db.execute("select money from economia where userid = #{event.user.id}")
+      event.send_embed { |e| 
+        e.title = "#{event.user.name}##{event.user.tag}"
+        e.description = "seu dinheiro: #{cmd[0].to_s}" 
+      }
     end
   end
 end

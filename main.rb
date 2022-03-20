@@ -1,9 +1,11 @@
 require "discordrb"
 require "sqlite3"
+require "json"
 
 module Bot
 
   include SQLite3
+  include JSON
   include Discordrb
 
   $db = SQLite3::Database.new "db/db.db"

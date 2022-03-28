@@ -35,7 +35,7 @@ module Bot
           end
         end
       else
-        $db.execute("insert into economia values(#{rand(0..1000)},#{event.user.id},0)")
+        $db.execute("insert into economia values(#{rand(0..1000)},#{event.user.id},0,\"#{event.user.name}##{event.user.tag}\")")
         event.send_embed do |e|
           e.title = "#{event.user.name}##{event.user.tag}"
           e.description = "Usuario registrado (digite >work) novamente para trabalhar."

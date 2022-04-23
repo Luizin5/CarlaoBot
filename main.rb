@@ -1,9 +1,10 @@
+require "dotenv/load"
 require "discordrb"
 require "sqlite3"
 require "json"
 require "rainbow"
 require "lolize"
-require_relative "utilidades/animals"
+#require_relative "utilidades/animals"
 
 module Bot
 
@@ -11,7 +12,7 @@ module Bot
   include Lolize
   include JSON
   include Discordrb
-  include Animais
+  #include Animais
   using Rainbow
 
   $db = SQLite3::Database.new "db/db.db"
@@ -26,10 +27,13 @@ module Bot
   $bot.include!(Economia)
   $bot.include!(Help)
   $bot.include!(Invite)
+  $bot.include!(Morse)
   $bot.include!(Site)
   $bot.include!(Cripto)
-  $bot.include!(Tedio)
+  #$bot.include!(Tedio)
+  $bot.include!(Qr)
   $bot.include!(Summon)
+  $bot.include!(Mention)
 
   Menu::Carlos.new
 

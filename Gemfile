@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+#a frozen_string_literal: true
 
 source "https://rubygems.org"
 
@@ -7,3 +7,4 @@ gem "discordrb"
 gem "telegraph"
 gem "dotenv"
 gem "sinatra"
+gem "puma"

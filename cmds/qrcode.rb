@@ -1,4 +1,4 @@
-maodule Bot
+module Bot
   module Qr
     extend Discordrb::Commands::CommandContainer
     command :qr do |event, *txt|

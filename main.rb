@@ -1,23 +1,24 @@
 require "dotenv/load"
 require "discordrb"
-require "sqlite3"
+require "pg"
 require "json"
-require "rainbow"
-require "lolize"
+#require "rainbow"
+#require "lolize"
 #require_relative "utilidades/animals"
 
 module Bot
 
-  include SQLite3
-  include Lolize
+  #include SQLite3
+  #include Lolize
+  include PG
   include JSON
   include Discordrb
   #include Animais
-  using Rainbow
+  #using Rainbow
 
-  $db = SQLite3::Database.new "db/db.db"
+  $db = PG.connect :host=>ENV["HOST"], :dbname => ENV["DATABASE"], :user=>ENV["USER"], :password=>ENV["PASSWORD"], :port=>ENV["PORTS"]
 
-  $colorizer = Lolize::Colorizer.new
+  #$colorizer = Lolize::Colorizer.new
 
   $bot = Discordrb::Commands::CommandBot.new token:"#{ENV["TOKEN"]}",prefix: ">", ignore_bots: true
 
@@ -29,13 +30,13 @@ module Bot
   $bot.include!(Invite)
   $bot.include!(Morse)
   $bot.include!(Site)
-  $bot.include!(Cripto)
+  #$bot.include!(Cripto)
   #$bot.include!(Tedio)
   $bot.include!(Qr)
   $bot.include!(Summon)
   $bot.include!(Mention)
 
-  Menu::Carlos.new
+  #Menu::Carlos.new
 
   $bot.run
 

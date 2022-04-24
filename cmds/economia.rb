@@ -11,16 +11,19 @@ module Bot
     
     command :registrar do |event|
 
+      begin
+        row = $db.exec("select userid from economia where userid=#{event.user.id}")
 
-      $db.execute("select userid from economia where userid=#{event.user.id}") do |r|
-        $row = r
-      end
+        #row.each { |h| p h }
 
-      if $row.index(event.user.id)
-        event.respond "**Você ja está registrado. Digite >work para trabalhar**"
+        if row[0].index(event.user.id)
+          event.respond "**Você ja está registrado. Digite >work para trabalhar**"
+        end
+        raise ""
+
+      rescue
       
-      else
-        $db.execute("insert into economia values(#{rand(0..1000)},#{event.user.id},0,\"#{event.user.name}##{event.user.tag}\")")
+        $db.exec("insert into economia(id,userid,money,name) values('#{rand(0..100)}','#{event.user.id}','0','#{event.user.name}##{event.user.tag}')")
         event.send_embed do |e|
           e.title = "#{event.user.name}##{event.user.tag}"
           e.description = "Usuario registrado (digite >work) novamente para trabalhar."
@@ -49,7 +52,7 @@ module Bot
         }.to_a.sample
 
 
-        $db.execute("update economia set money = money + #{trabalhos[1]} where userid = #{event.user.id}")
+        $db.exec("update economia set money = money + #{trabalhos[1]} where userid = '#{event.user.id}'")
         event.send_embed do |e|
           e.title = "#{event.user.name}##{event.user.tag}"
           e.title = "você trabalhou de #{trabalhos[0]} e ganhou #{trabalhos[1]} dinheiros"
@@ -61,7 +64,7 @@ module Bot
 
 
     command :money do |event|
-      cmd = $db.execute("select money from economia where userid = #{event.user.id}")
+      cmd = $db.exec("select money from economia where userid = '#{event.user.id}'")
       event.send_embed { |e| 
         e.title = "#{event.user.name}##{event.user.tag}"
         e.description = "seu dinheiro: #{cmd[0].to_s}" 

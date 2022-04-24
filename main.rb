@@ -1,6 +1,7 @@
 require "dotenv/load"
 require "discordrb"
 require "pg"
+require "telegraph"
 require "json"
 #require "rainbow"
 #require "lolize"
@@ -13,6 +14,7 @@ module Bot
   #include SQLite3
   #include Lolize
   include PG
+  include Telegraph
   include JSON
   include Discordrb
   #load "keepalive.rb"

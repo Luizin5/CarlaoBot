@@ -12,7 +12,6 @@ module Bot
 >money - consulte o banco e tenha depressão
 >ping - pong
 >qr [txt] - gera qr code com o texto inserido
->tedio - faça o que o bot mandar para sair do tédio 😾
 >morse [encode/decode] [txt]
 >github - github
 >site - https://carlaoweb.herokuapp.com/"
@@ -22,6 +21,10 @@ module Bot
 
       #event.respond "#{event.timestamp - Time.now}"
 
+    end
+
+    command :github do |event|
+      event.respond "<@#{event.user.id}>\nhttps://github.com/Luizin5/CarlaoBot"
     end
   end
 end

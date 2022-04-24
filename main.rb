@@ -13,8 +13,10 @@ module Bot
   include PG
   include JSON
   include Discordrb
+  load "keepalive.rb"
   #include Animais
   #using Rainbow
+
 
   $db = PG.connect :host=>ENV["HOST"], :dbname => ENV["DATABASE"], :user=>ENV["USER"], :password=>ENV["PASSWORD"], :port=>ENV["PORTS"]
 
@@ -39,6 +41,9 @@ module Bot
   #Menu::Carlos.new
 
   $bot.run
+
+
+  alive
 
 
 end

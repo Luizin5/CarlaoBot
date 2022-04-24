@@ -20,7 +20,7 @@ module Bot
 
       end
 
-      event.respond "#{event.timestamp - Time.now}"
+      #event.respond "#{event.timestamp - Time.now}"
 
     end
   end

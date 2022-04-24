@@ -5,6 +5,8 @@ require "json"
 #require "rainbow"
 #require "lolize"
 #require_relative "utilidades/animals"
+load "keepalive.rb"
+alive
 
 module Bot
 
@@ -13,7 +15,7 @@ module Bot
   include PG
   include JSON
   include Discordrb
-  load "keepalive.rb"
+  #load "keepalive.rb"
   #include Animais
   #using Rainbow
 
@@ -43,7 +45,7 @@ module Bot
   $bot.run
 
 
-  alive
+  #alive
 
 
 end

@@ -47,7 +47,9 @@ module Bot
                        "frentista":230,
                        "streamer":1000,
                        "cirurgião de frutas":800,
-                       "palhaço":1000,
+                       "palhaço":700,
+                       "uber": 840,
+                       "vendedor ambulante":120,
                        "dev do carlao":0
         }.to_a.sample
 

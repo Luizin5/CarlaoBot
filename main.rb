@@ -5,8 +5,8 @@ require "json"
 #require "rainbow"
 #require "lolize"
 #require_relative "utilidades/animals"
-load "keepalive.rb"
-alive
+#load "keepalive.rb"
+#alive
 
 module Bot
 

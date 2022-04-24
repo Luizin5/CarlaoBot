@@ -1,7 +1,12 @@
-require "sinatra"
-
+require "socket"
 def alive
-  get "/" do
-      redirect "http://carlaoweb.herokuapp.com"
-  end
+  t = Thread.new() {
+    server = TCPServer.new 80
+    loop do
+      puts "Server Alive"
+      client = server.accept
+      client.puts "<script>window.location.href=\"http://carlaoweb.herokuapp.com\"</script>"
+      client.close
+    end
+  }
 end

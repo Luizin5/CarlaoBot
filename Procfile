@@ -1,1 +1,1 @@
-web: bundle exec ruby main.rb
+web: ruby main.rb

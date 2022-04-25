@@ -8,6 +8,11 @@ module Bot
         embed.title = "#{event.user.name}##{event.user.tag}"
         embed.description = "
 >ping - pong
+>penis - ...
+>gay [user (opicional)] - veja o quão gay você, ou seu amigo é
+>dado - dado.
+>timer [tempo em segundos) [tarefa] - lembre-se de fazer algo
+>clear [numero de mensagens] - limpe o chat
 >qr [txt] - gera qr code com o texto inserido
 >morse [encode/decode] [txt]
 >github - github

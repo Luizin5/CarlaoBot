@@ -22,7 +22,7 @@ module Bot
   #using Rainbow
 
 
-  $db = PG.connect :host=>ENV["HOST"], :dbname => ENV["DATABASE"], :user=>ENV["USER"], :password=>ENV["PASSWORD"], :port=>ENV["PORTS"]
+  #$db = PG.connect :host=>ENV["HOST"], :dbname => ENV["DATABASE"], :user=>ENV["USER"], :password=>ENV["PASSWORD"], :port=>ENV["PORTS"]
 
   #$colorizer = Lolize::Colorizer.new
 
@@ -31,7 +31,7 @@ module Bot
 
   p Dir["cmds/*.rb"].each { |m| require_relative m.gsub("\.rb","")}
   $bot.include!(Ping)
-  $bot.include!(Economia)
+  #$bot.include!(Economia)
   $bot.include!(Help)
   $bot.include!(Invite)
   $bot.include!(Morse)

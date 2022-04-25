@@ -7,9 +7,6 @@ module Bot
         
         embed.title = "#{event.user.name}##{event.user.tag}"
         embed.description = "
->registrar - registre-se no banco de dados para trabalhar
->work - Trabalha vagabundo
->money - consulte o banco e tenha depressão
 >ping - pong
 >qr [txt] - gera qr code com o texto inserido
 >morse [encode/decode] [txt]

@@ -5,7 +5,7 @@ module Bot
     command :morse do |event, decodeOrEncode, *txt|
       txt = txt.join('')
 
-      p Telegraph.morse_to_text(txt)
+      p Telegraph.morse_to_text("...-.-")
 
       event.send_embed do |e|
         e.title = "#{event.user.name}"

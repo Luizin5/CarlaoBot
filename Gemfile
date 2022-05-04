@@ -2,9 +2,9 @@
 
 source "https://rubygems.org"
 
-gem "pg"
+#gem "pg"
 gem "discordrb"
 gem "telegraph"
 gem "dotenv"
-gem "sinatra"
+#gem "sinatra"
 gem "puma"

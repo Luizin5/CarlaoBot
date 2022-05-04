@@ -1,6 +1,6 @@
 require "dotenv/load"
 require "discordrb"
-require "pg"
+#require "pg"
 require "telegraph"
 require "json"
 #require "rainbow"
@@ -13,7 +13,7 @@ module Bot
 
   #include SQLite3
   #include Lolize
-  include PG
+  #include PG
   include Telegraph
   include JSON
   include Discordrb
@@ -31,6 +31,7 @@ module Bot
 
   p Dir["cmds/*.rb"].each { |m| require_relative m.gsub("\.rb","")}
   $bot.include!(Ping)
+  $bot.include!(Perguntar)
   #$bot.include!(Economia)
   $bot.include!(Help)
   $bot.include!(Invite)

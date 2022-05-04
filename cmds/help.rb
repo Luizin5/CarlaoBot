@@ -11,6 +11,7 @@ module Bot
 >penis - ...
 >gay [user (opicional)] - veja o quão gay você, ou seu amigo é
 >dado - dado.
+>escolha [txt] - >escolha devo comprar uma rtx? - não (provavelmente porque não tem dinheiro)
 >timer [tempo em segundos) [tarefa] - lembre-se de fazer algo
 >clear [numero de mensagens] - limpe o chat
 >qr [txt] - gera qr code com o texto inserido

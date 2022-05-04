@@ -42,6 +42,7 @@ GEM
 
 PLATFORMS
   arm-linux-androideabi
+  x86_64-linux
 
 DEPENDENCIES
   discordrb
